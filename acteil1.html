@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoWo Chemie Mannheim | AC Teil 1 – 90%+ Masterguide</title>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-subtle: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #0284c7;
+            --primary-light: #e0f2fe;
+            --accent: #4f46e5;
+            --accent-light: #e0e7ff;
+            --success: #16a34a;
+            --success-bg: #dcfce7;
+            --warning: #d97706;
+            --warning-bg: #fef3c7;
+            --danger: #dc2626;
+            --danger-bg: #fee2e2;
+            --border: #e2e8f0;
+            --radius: 10px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.56;
+            padding-bottom: 4rem;
+        }
+
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand { display: flex; align-items: center; gap: 0.75rem; }
+
+        .badge-target {
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 1.2rem; font-weight: 800; color: var(--text-main); }
+
+        nav { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        nav a:hover { background: var(--bg-subtle); color: var(--primary); }
+
+        .btn-download {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-download:hover { opacity: 0.9; }
+
+        .container { max-width: 1240px; margin: 2rem auto; padding: 0 1.5rem; }
+
+        .intro-banner {
+            background: linear-gradient(135deg, #0284c7 0%, #3b82f6 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .intro-banner h2 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+        .intro-banner p { font-size: 0.94rem; opacity: 0.95; max-width: 900px; }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .section-freq {
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 650px) { .grid-2 { grid-template-columns: 1fr; } }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.3rem 1.45rem;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.7rem; color: var(--text-main); }
+        .card h4 { font-size: 0.95rem; font-weight: 700; margin: 0.95rem 0 0.35rem; color: var(--primary); }
+
+        .box {
+            padding: 0.85rem 1.05rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            font-size: 0.89rem;
+            border-left: 4px solid;
+        }
+
+        .box-trap { background: var(--danger-bg); border-left-color: var(--danger); color: #7f1d1d; }
+        .box-shortcut { background: var(--success-bg); border-left-color: var(--success); color: #14532d; }
+        .box-info { background: var(--primary-light); border-left-color: var(--primary); color: #0c4a6e; }
+        .box-warn { background: var(--warning-bg); border-left-color: var(--warning); color: #78350f; }
+
+        .box-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.74rem;
+            letter-spacing: 0.04em;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.86rem; margin: 0.7rem 0; }
+        th, td { text-align: left; padding: 0.5rem 0.65rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+        th { background: var(--bg-subtle); font-weight: 700; color: var(--text-main); }
+        tr:last-child td { border-bottom: none; }
+
+        ul, ol { padding-left: 1.2rem; margin: 0.45rem 0; font-size: 0.9rem; }
+        li { margin-bottom: 0.35rem; }
+
+        code, .formula-inline {
+            font-family: Consolas, Monaco, monospace;
+            background: var(--bg-subtle);
+            padding: 0.12rem 0.38rem;
+            border-radius: 4px;
+            font-size: 0.88em;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .formula-block {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            margin: 0.6rem 0;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--accent);
+        }
+
+        .en-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin: 0.85rem 0;
+            text-align: center;
+        }
+
+        .en-cell {
+            padding: 0.45rem 0.2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-size: 0.84rem;
+        }
+
+        .en-el { font-weight: 800; font-size: 0.98rem; display: block; }
+        .en-val { font-size: 0.76rem; color: var(--text-muted); font-weight: 700; }
+        .en-high { background: #fee2e2; border-color: #fca5a5; }
+        .en-med { background: #fef3c7; border-color: #fcd34d; }
+        .en-low { background: #e0f2fe; border-color: #bae6fd; }
+        .en-metal { background: #f1f5f9; }
+
+        details.quiz {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.7rem 0.95rem;
+            margin-top: 0.7rem;
+            font-size: 0.89rem;
+        }
+
+        details.quiz summary { font-weight: 700; cursor: pointer; color: var(--primary); }
+        details.quiz .ans { margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px dashed var(--border); }
+
+        .pill {
+            display: inline-block;
+            padding: 0.1rem 0.42rem;
+            border-radius: 4px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .nuclide-demo {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.45rem;
+            font-weight: 800;
+            background: var(--bg-subtle);
+            padding: 0.45rem 0.95rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .nuclide-nums {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.82rem;
+            line-height: 1.15;
+            margin-right: 0.25rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <span class="badge-target">VoWo Mannheim</span>
+            <h1>Anorganische Chemie – Teil 1</h1>
+        </div>
+        <nav>
+            <a href="#atombau">1. Atombau &amp; Orbitale</a>
+            <a href="#pse-en">2. PSE &amp; EN-Werte</a>
+            <a href="#bindungen">3. Bindungen &amp; Lewis</a>
+            <a href="#geometrie">4. VSEPR &amp; Hybridisierung</a>
+            <a href="#rechnen">5. Mol, % &amp; Stöchiometrie</a>
+            <button class="btn-download" onclick="downloadHTML()">⬇ Als .html speichern</button>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="intro-banner">
+        <h2>AC Teil 1: Atombau, PSE, Bindungen, Geometrie &amp; Stöchiometrie</h2>
+        <p>Die Mannheimer VoWo-Klausur nutzt einen festen Fragenpool aus den letzten 15 Jahren. Oft werden nur Zahlen leicht variiert oder in der Fragestellung <strong>„richtig“</strong> gegen <strong>„falsch / trifft NICHT zu“</strong> getauscht. Lerne nie die Antwortbuchstaben (A–E werden neu gemischt), sondern die 10-Sekunden-Regeln auf dieser Seite.</p>
+    </div>
+
+    <!-- KAPITEL 1 -->
+    <div class="section-title" id="atombau">
+        <span>1. Atombau, Ionen, Edelgaskonfiguration &amp; Orbitale</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Nuklid-Schreibweise &amp; Teilchen zählen (Seminar 1a–c)</h3>
+            <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                <div class="nuclide-demo">
+                    <div class="nuclide-nums">
+                        <span style="color: var(--primary);">Massenzahl A</span>
+                        <span style="color: var(--danger);">Ordnungszahl Z</span>
+                    </div>
+                    <span>El<sup>Ladung</sup></span>
+                </div>
+                <div style="font-size: 0.89rem;">
+                    <strong>Protonen (p<sup>+</sup>)</strong> = <code>Z</code> (unten links, bestimmt das Element!)<br>
+                    <strong>Nukleonen (A)</strong> = <code>p<sup>+</sup> + n</code> (oben links, Gesamtmasse)<br>
+                    <strong>Neutronen (n)</strong> = <code>A − Z</code> (oben minus unten)<br>
+                    <strong>Elektronen (e<sup>−</sup>)</strong> = <code>Z − Ladung</code>
+                </div>
+            </div>
+
+            <div class="box box-trap">
+                <span class="box-title">Klausur-Falle #1: Negative Ladung &amp; Gesamtelektronen</span>
+                <ul>
+                    <li><strong>Negative Ladung rückwärts rechnen (2020, 2021):</strong> Ein zweifach negativ geladenes Nuklid (<code>X<sup>2−</sup></code>) hat 2 Elektronen MEHR als Protonen (<code>p<sup>+</sup> = e<sup>−</sup> − 2</code>)!<br>
+                    • Hat es 16 Nukleonen und <strong>10 Elektronen</strong> (2021 #17): <code>p<sup>+</sup> = 10 − 2 = 8</code> &rarr; <strong>Sauerstoff</strong> (<sup>16</sup>O<sup>2−</sup>, 8 p<sup>+</sup> + 8 n).<br>
+                    • Hat es 16 Nukleonen und <strong>8 Elektronen</strong> bei Ladung 2− (2020 #24): <code>p<sup>+</sup> = 8 − 2 = 6</code> &rarr; <strong>besonderes Kohlenstoff-Isotop</strong> (<sup>16</sup>C<sup>2−</sup>)!</li>
+                    <li><strong>Valenz- vs. Gesamtelektronen (2017, 2018):</strong> „Welches Element hat 13 Nukleonen und 6 Elektronen?“ &rarr; <strong><sup>13</sup>C</strong> (6 p<sup>+</sup>, 7 n, 6 e<sup>−</sup>). Falle ist <sup>19</sup>O (Sauerstoff hat zwar 6 <em>Valenz</em>elektronen, aber insgesamt 8 Elektronen!).</li>
+                </ul>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Begriff</th>
+                        <th>Definition</th>
+                        <th>Seminar-Aufgabe 1a–c Lösungen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Isotope</strong> <span class="pill">2023, 2024</span></td>
+                        <td>Gleiche Protonenzahl (Z), <strong>andere Neutronenzahl (N)</strong></td>
+                        <td><sup>12</sup><sub>6</sub>C und <sup>13</sup><sub>6</sub>C sowie <sup>1</sup>H, <sup>2</sup>H, <sup>3</sup>H</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Isobare</strong> <span class="pill">Sem 1c</span></td>
+                        <td>Gleiche Massenzahl (A), aber verschiedene Elemente</td>
+                        <td><sup>14</sup><sub>6</sub>C und <sup>14</sup><sub>7</sub>N (beide A = 14)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Beispiele Sem 1a/b</strong></td>
+                        <td><code>E = Z − Ladung</code> | <code>N = A − Z</code></td>
+                        <td>• <sup>79</sup><sub>35</sub>Br<sup>−</sup>: Z=35, N=44, E=36, A=79<br>• <sup>2</sup><sub>1</sub>H<sup>+</sup>: Z=1, N=1, <strong>E=0</strong>, A=2<br>• <sup>197</sup><sub>79</sub>Au<sup>+</sup>: Z=79, N=118, E=78, A=197<br>• 92 p<sup>+</sup>, 146 n, 92 e<sup>−</sup> = <strong><sup>238</sup><sub>92</sub>U (Uran)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <details class="quiz">
+                <summary>Klausur-Dauerbrenner (2019, 2020, 2021): Welches Teilchen hat 90 Elektronen und 143 Neutronen?</summary>
+                <div class="ans">
+                    Richtig ist <strong><sup>234</sup><sub>91</sub>Pa<sup>+</sup></strong>!<br>
+                    • Neutronen: <code>234 − 91 = 143</code> ✔<br>
+                    • Elektronen: <code>91 − (+1) = 90</code> ✔<br>
+                    <em>Fallen in den Antworten:</em> <sup>235</sup><sub>92</sub>U hat zwar auch 143 Neutronen, aber 92 Elektronen! <sup>234</sup><sub>90</sub>Th hat zwar 90 Elektronen, aber 144 Neutronen!
+                </div>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Edelgaskonfiguration &amp; Quantenzahlen / Orbitale</h3>
+            <p style="font-size: 0.9rem;">Ein Atom oder Ion hat <strong>Edelgaskonfiguration</strong>, wenn seine <strong>Gesamtelektronenzahl</strong> exakt <strong>2 (He), 10 (Ne), 18 (Ar) oder 36 (Kr)</strong> beträgt.</p>
+
+            <div class="box box-shortcut">
+                <span class="box-title">10-Sekunden-Check (Altfragen 2015–2024)</span>
+                <ul>
+                    <li><strong>2 e<sup>−</sup> (Helium = 1s<sup>2</sup>):</strong> <strong>H<sup>−</sup></strong> (Hydrid-Ion, 1+1=2, Klausur 2017!) und <strong>Li<sup>+</sup></strong> (3−1=2).</li>
+                    <li><strong>10 e<sup>−</sup> (Neon = 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup>):</strong> <strong>O<sup>2−</sup></strong> (8+2), <strong>F<sup>−</sup></strong> (9+1), <strong>Na<sup>+</sup></strong> (11−1), <strong>Mg<sup>2+</sup></strong> (12−2), <strong>Al<sup>3+</sup></strong> (13−3).</li>
+                    <li><strong>18 e<sup>−</sup> (Argon):</strong> <strong>S<sup>2−</sup></strong> (16+2), <strong>Cl<sup>−</sup></strong> (17+1), <strong>K<sup>+</sup></strong> (19−1), <strong>Ca<sup>2+</sup></strong> (20−2).</li>
+                    <li><strong>Typische Klausur-Nieten (KEINE Edelgaskonfiguration!):</strong> Neutrales F (9 e<sup>−</sup>), S (16 e<sup>−</sup>), Na (11 e<sup>−</sup>), H (1 e<sup>−</sup>) sowie falsche Ladungen wie <strong>Mg<sup>+</sup> (11), Ca<sup>+</sup> (19), Cl<sup>+</sup> (16), O<sup>−</sup> (9)</strong>!</li>
+                    <li><strong>Spezialfalle 2015 #4:</strong> „Welches Teilchen hat <u>nicht</u> die Konfiguration 1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup>?“ &rarr; <strong>Li<sup>+</sup></strong> (hat nur 1s<sup>2</sup>, also Helium statt Neon!).</li>
+                </ul>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unterschale</th>
+                        <th>s (l = 0)</th>
+                        <th>p (l = 1)</th>
+                        <th>d (l = 2)</th>
+                        <th>f (l = 3)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Anzahl Orbitale (Kästchen)</strong> <span class="pill">2017, 2018</span></td>
+                        <td><strong>1</strong></td>
+                        <td><strong>3</strong></td>
+                        <td><strong>5</strong></td>
+                        <td><strong>7</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Max. Elektronen (2 pro Orbital)</td>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>10</td>
+                        <td>14</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.82rem; color: var(--danger); font-weight: 700;">Achtung Klausur 2017/2018: Gefragt wird nach der Zahl der ORBITALE (Antwort: s-1, p-3, d-5, f-7) – nicht nach der Elektronenzahl (2, 6, 10, 14)!</p>
+
+            <h4>Die 4 Gesetze (Multiple-Choice-Verwechslungsspiel)</h4>
+            <ul style="font-size: 0.88rem;">
+                <li><strong>Pauli-Prinzip (2019, 2021):</strong> Je zwei Elektronen in einem Atom können <strong>nicht in allen (4) Quantenzahlen übereinstimmen</strong> (folglich max. 2 e<sup>−</sup> pro Orbital mit entgegengesetztem Spin &uarr;&darr;).</li>
+                <li><strong>Hund'sche Regel (2018):</strong> Energiegleiche (entartete) Orbitale (z. B. die drei p-Orbitale) werden zuerst <strong>einzeln mit parallelem Spin (&uarr;&uarr;&uarr;)</strong> besetzt, erst danach wird gepaart.</li>
+                <li><strong>Lambert-Beer-Gesetz (2023, 2024):</strong> Die Lichtabsorption (Extinktion E) ist proportional zur <strong>Konzentration c</strong> des absorbierenden Stoffs (<code>E = &epsilon; &middot; c &middot; d</code>).</li>
+                <li><strong>Oktettregel / Avogadro:</strong> Hauptgruppenelemente streben 8 Außenelektronen an / 1 mol enthält konstant 6,022 &middot; 10<sup>23</sup> Teilchen.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- KAPITEL 2 -->
+    <div class="section-title" id="pse-en">
+        <span>2. Periodensystem (PSE) &amp; Elektronegativität (EN)</span>
+        <span class="section-freq">In 90% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Das EN-Gedächtnis-System (da im Klausur-PSE fehlend!)</h3>
+            <p style="font-size: 0.9rem;">Für Seminar-Aufgabe 2 &amp; 11 sowie die Oxidationszahlen brauchst du die Pauling-EN-Werte der wichtigsten Elemente im Kopf. Mit diesem Raster merkst du sie dir in 30 Sekunden:</p>
+
+            <div class="en-grid">
+                <div class="en-cell en-med"><span class="en-el">H</span><span class="en-val">2,1</span></div>
+                <div style="grid-column: span 6; display: flex; align-items: center; justify-content: flex-end; font-size: 0.8rem; color: var(--text-muted); padding-right: 0.4rem;">
+                    <strong>Trick 2. Periode:</strong> Starte bei Li (1,0) und addiere nach rechts immer <strong>+0,5</strong>!
+                </div>
+                
+                <div class="en-cell en-metal"><span class="en-el">Li</span><span class="en-val">1,0</span></div>
+                <div class="en-cell en-metal"><span class="en-el">Be</span><span class="en-val">1,5</span></div>
+                <div class="en-cell en-low"><span class="en-el">B</span><span class="en-val">2,0</span></div>
+                <div class="en-cell en-med"><span class="en-el">C</span><span class="en-val">2,5</span></div>
+                <div class="en-cell en-high"><span class="en-el">N</span><span class="en-val">3,0</span></div>
+                <div class="en-cell en-high"><span class="en-el">O</span><span class="en-val">3,5</span></div>
+                <div class="en-cell en-high"><span class="en-el">F</span><span class="en-val">4,0</span></div>
+
+                <div class="en-cell en-metal"><span class="en-el">Na</span><span class="en-val">0,9</span></div>
+                <div class="en-cell en-metal"><span class="en-el">Mg</span><span class="en-val">1,2</span></div>
+                <div class="en-cell en-metal"><span class="en-el">Al</span><span class="en-val">1,5</span></div>
+                <div class="en-cell en-low"><span class="en-el">Si</span><span class="en-val">1,8</span></div>
+                <div class="en-cell en-med"><span class="en-el">P</span><span class="en-val">2,1</span></div>
+                <div class="en-cell en-med"><span class="en-el">S</span><span class="en-val">2,5</span></div>
+                <div class="en-cell en-high"><span class="en-el">Cl</span><span class="en-val">3,0</span></div>
+            </div>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Die 3 Eselsbrücken für alle EN-Reihenfolgen (Seminar 2)</span>
+                <ol>
+                    <li><strong>Die +0,5-Leiter (2. Periode):</strong> Li (1,0) &rarr; Be (1,5) &rarr; B (2,0) &rarr; C (2,5) &rarr; N (3,0) &rarr; O (3,5) &rarr; F (4,0).</li>
+                    <li><strong>Die Nichtmetall-Königskette (FONCl):</strong><br>
+                    <code>F (4,0) &gt; O (3,5) &gt; N (3,0) &approx; Cl (3,0) &gt; Br (2,8) &gt; I (2,5) &approx; S (2,5) &approx; C (2,5) &gt; P (2,1) = H (2,1) &gt; Si (1,8)</code>.</li>
+                    <li><strong>Seminar-Aufgabe 2 gelöst:</strong><br>
+                    • <strong>a)</strong> Na (0,9) &lt; Al (1,5) &lt; C (2,5) &lt; N (3,0) &lt; O (3,5)<br>
+                    • <strong>b)</strong> K (0,8) &lt; Si (1,8) &lt; S (2,5) &lt; Cl (3,0) &lt; F (4,0).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Trends im PSE &amp; Ionenbildungstendenz</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Eigenschaft</th>
+                        <th>In Periode (links &rarr; rechts)</th>
+                        <th>In Gruppe (oben &rarr; unten)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Elektronegativität (EN)</strong></td>
+                        <td><strong>Nimmt ZU &uarr;</strong> (F ist Maximum)</td>
+                        <td><strong>Nimmt AB &darr;</strong> (F &gt; Cl &gt; Br &gt; I)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Atomradius</strong> <span class="pill">Sem 12</span></td>
+                        <td><strong>Nimmt AB &darr;</strong> (mehr Protonen ziehen dieselbe Schale enger!)</td>
+                        <td><strong>Nimmt ZU &uarr;</strong> (mehr Elektronenschalen!)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metallcharakter</strong></td>
+                        <td>Nimmt AB &darr; (Metalle haben kleinere EN als Nichtmetalle!)</td>
+                        <td>Nimmt ZU &uarr;</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="box box-info">
+                <span class="box-title">Seminar-Aufgabe 12 &amp; Klausur 2011 #29: Atomradien-Vergleich</span>
+                <ul>
+                    <li><strong>K oder Br?</strong> Beide 4. Periode. K steht ganz links, Br rechts &rarr; <strong>K hat den größeren Atomradius</strong>!</li>
+                    <li><strong>Cl oder I?</strong> Beide 7. Hauptgruppe (7 Valenzelektronen). Iod steht weiter unten &rarr; <strong>Iod hat den größeren Atomradius</strong> (und eine kleinere EN als Chlor!).</li>
+                </ul>
+            </div>
+
+            <div class="box box-trap">
+                <span class="box-title">Klausur 2009 &amp; 2011 (#14): „Geringste Tendenz, Ionen zu bilden?“</span>
+                <p>Metalle (Na, Ca, Mg, Fe, Zn) bilden leicht Kationen; Halogene (Cl) bilden leicht Anionen.<br>
+                <strong>Wer bildet fast NIE einatomige Ionen?</strong> Elemente in der Mitte des PSE wie <strong>Bor (B)</strong> (Klausur 2011) und <strong>Stickstoff (N)</strong> (Klausur 2009)! Sie gehen fast ausschließlich kovalente Bindungen ein.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- KAPITEL 3 -->
+    <div class="section-title" id="bindungen">
+        <span>3. Chemische Bindungen, Lewis-Formeln &amp; Anionen-Nomenklatur</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Bindungsarten klassifizieren (Seminar 5, 11 &amp; Klausur)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bindungsart</th>
+                        <th>Kriterium</th>
+                        <th>Klausur- &amp; Seminarbeispiele</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ionenbindung</strong></td>
+                        <td>Metall + Nichtmetall (&Delta;EN &gt; 1,7), Salze</td>
+                        <td>NaCl, <strong>KF</strong>, <strong>BaCl<sub>2</sub></strong>, LiI, KNO<sub>3</sub>, CaSO<sub>4</sub>, Fe(NO<sub>3</sub>)<sub>3</sub></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kovalent (unpolar)</strong></td>
+                        <td>Gleiche Nichtmetalle (&Delta;EN &lt; 0,4)</td>
+                        <td>H<sub>2</sub>, Cl<sub>2</sub>, O<sub>2</sub>, C–C und C–H in Alkanen (CH<sub>4</sub>, n-Butan)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kovalent (polar / Dipol)</strong></td>
+                        <td>Verschiedene Nichtmetalle</td>
+                        <td>HF, HCl, HBr, H<sub>2</sub>O, H<sub>2</sub>O<sub>2</sub>, NH<sub>3</sub>, BF<sub>3</sub>, BBr<sub>3</sub>, SO<sub>2</sub>, SiO<sub>2</sub>, HNO<sub>3</sub></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Komplexbindung</strong></td>
+                        <td>Zentralmetall + Liganden in <code>[...]</code></td>
+                        <td>K<sub>4</sub>[Fe(CN)<sub>6</sub>], K<sub>2</sub>[Ni(CN)<sub>4</sub>], [Ag(NH<sub>3</sub>)<sub>2</sub>]<sup>+</sup></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metallbindung</strong></td>
+                        <td>Reines Metall oder Legierung</td>
+                        <td>Cu, Fe, FeNi (Seminar 5i)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="box box-trap">
+                <span class="box-title">Die 3 großen Bindungs-Fallen der Altklausuren</span>
+                <ol>
+                    <li><strong>„Welche Substanz hat KEINE kovalente Bindung?“ (2017, 2018, 2020):</strong><br>
+                    Suche ein Salz aus <strong>nur einatomigen Ionen</strong>: <strong>KF (Kaliumfluorid)</strong> oder <strong>BaCl<sub>2</sub> (Bariumchlorid)</strong>!<br>
+                    <em>Warum sind NaOH und Na<sub>3</sub>PO<sub>4</sub> falsch?</em> Weil innerhalb des OH<sup>−</sup>- bzw. PO<sub>4</sub><sup>3−</sup>-Ions eine kovalente O–H- bzw. P–O-Bindung vorliegt!</li>
+                    <li><strong>Salz &ne; Metallbindung (2009, 2011):</strong> In FeCl<sub>3</sub>, MgCl<sub>2</sub> oder K<sub>4</sub>[Fe(CN)<sub>6</sub>] liegt <strong>keine</strong> Metallbindung vor!</li>
+                    <li><strong>Seminar 11a/b (Reihenfolge nach ionischem Charakter / &Delta;EN):</strong><br>
+                    • <strong>11a:</strong> H<sub>2</sub> (&Delta;EN = 0, unpolar) &lt; SO<sub>2</sub> (&Delta;EN = 1,0, Dipol) &lt; LiI (&Delta;EN = 1,5) &lt; HF (&Delta;EN = 1,9, starker Dipol) &lt; NaCl (&Delta;EN = 2,1, Ionenbindung).<br>
+                    • <strong>11b:</strong> n-Butan (unpolar) &lt; Ethanol (Dipol) &lt; <strong>Glycin</strong> (liegt als Zwitterion <code><sup>+</sup>H<sub>3</sub>N–CH<sub>2</sub>–COO<sup>−</sup></code> vor &rarr; Salzcharakter!).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Lewis-Formeln: Freie Paare &amp; Bindungen zählen (Sem 6, 13)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atom</th>
+                        <th>Valenz-e<sup>−</sup></th>
+                        <th>Bindungen</th>
+                        <th>Freie Elektronenpaare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>H</strong></td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>B</strong> (Bor in BH<sub>3</sub>, BF<sub>3</sub>)</td>
+                        <td>3</td>
+                        <td>3 (Elektronenlücke!)</td>
+                        <td><strong>0 am Bor!</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>C</strong></td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>N</strong> (in NH<sub>3</sub>, Aminen)</td>
+                        <td>5</td>
+                        <td>3 (4 bei NH<sub>4</sub><sup>+</sup>)</td>
+                        <td><strong>1</strong> (0 bei NH<sub>4</sub><sup>+</sup>)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>O, S</strong> (in H<sub>2</sub>O, H<sub>2</sub>S)</td>
+                        <td>6</td>
+                        <td>2</td>
+                        <td><strong>2</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>F, Cl, Br, I</strong></td>
+                        <td>7</td>
+                        <td>1</td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Klausur-Fragen zu freien Elektronenpaaren &amp; Bindungszahlen</span>
+                <ul>
+                    <li><strong>KEIN freies Elektronenpaar (2017–2025 &amp; Sem 13):</strong> Nur reine Kohlenwasserstoffe wie <strong>Methan (CH<sub>4</sub>), Ethan (C<sub>2</sub>H<sub>6</sub>), Ethin (C<sub>2</sub>H<sub>2</sub>)</strong> sowie <strong>Boran (BH<sub>3</sub>)</strong>!<br>
+                    <em>Falle BF<sub>3</sub> / BBr<sub>3</sub>:</em> Bor hat zwar kein freies Paar, aber die 3 Halogene haben zusammen <strong>9 freie Elektronenpaare</strong>!</li>
+                    <li><strong>Genau EIN freies Elektronenpaar (2023 #16):</strong> <strong>Ammoniak (NH<sub>3</sub>)</strong>!</li>
+                    <li><strong>Elektronenpaarbindungen zählen (alle Striche inkl. C–H!):</strong><br>
+                    • <strong>Schwefelwasserstoff (H–S–H, 2023/2024):</strong> <strong>2</strong> Bindungen (+ 2 freie Paare).<br>
+                    • <strong>Ethin (H–C&equiv;C–H, 2019/2021):</strong> 2 &times; C–H + 3 (Dreifachbindung) = <strong>5</strong>.<br>
+                    • <strong>Ethen (H<sub>2</sub>C=CH<sub>2</sub>, 2020):</strong> 4 &times; C–H + 2 (Doppelbindung) = <strong>6</strong>.<br>
+                    • <strong>Dimethylether (H<sub>3</sub>C–O–CH<sub>3</sub>, 2025):</strong> 6 &times; C–H + 2 &times; C–O = <strong>8</strong>.<br>
+                    • <strong>Trimethylamin (N(CH<sub>3</sub>)<sub>3</sub>, 2021):</strong> 9 &times; C–H + 3 &times; C–N = <strong>12</strong>.</li>
+                </ul>
+            </div>
+
+            <div class="box box-info">
+                <span class="box-title">Seminar-Aufgabe 3: Ionische Verbindungen benennen</span>
+                <p><strong>a) KCl:</strong> Kaliumchlorid | <strong>b) CaCO<sub>3</sub>:</strong> Calciumcarbonat | <strong>c) Fe<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>:</strong> Eisen(II)-phosphat | <strong>d) Pb(CH<sub>3</sub>COO)<sub>4</sub>:</strong> Blei(IV)-acetat | <strong>e) K<sub>2</sub>[Ni(CN)<sub>4</sub>]:</strong> Kaliumtetracyanidonickelat(II).<br>
+                <em>Merke:</em> S<sup>2−</sup> = Sulf<strong>id</strong>, SO<sub>3</sub><sup>2−</sup> = Sulf<strong>it</strong>, SO<sub>4</sub><sup>2−</sup> = Sulf<strong>at</strong> (Klausur 2009 #3).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- KAPITEL 4 -->
+    <div class="section-title" id="geometrie">
+        <span>4. Molekülgeometrie (VSEPR) &amp; Hybridisierung</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Der 10-Sekunden-Trick: Bereiche am Zentralatom zählen</h3>
+            <p style="font-size: 0.9rem;"><code>Sterische Zahl (Bereiche) = Anzahl gebundener Nachbaratome + Anzahl freier Elektronenpaare am Zentralatom</code> (Mehrfachbindungen zählen als 1 Bereich!):</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bereiche</th>
+                        <th>Hybrid.</th>
+                        <th>Freie Paare</th>
+                        <th>Molekülgeometrie</th>
+                        <th>Klausur- &amp; Seminar-Moleküle (Aufgabe 6)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>2</strong></td>
+                        <td><code>sp</code></td>
+                        <td>0</td>
+                        <td><strong>Linear (180°)</strong></td>
+                        <td><strong>CO<sub>2</sub></strong> (O=C=O), <strong>CS<sub>2</sub></strong> (S=C=S), <strong>Ethin</strong> (C<sub>2</sub>H<sub>2</sub>), HCN</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3</strong></td>
+                        <td><code>sp²</code></td>
+                        <td>0</td>
+                        <td><strong>Trigonal-planar (120°)</strong></td>
+                        <td><strong>BF<sub>3</sub>, BBr<sub>3</sub>, CO<sub>3</sub><sup>2−</sup></strong>, H<sub>2</sub>CO<sub>3</sub>, SO<sub>3</sub>, <strong>Ethen</strong>, C=O, Benzol</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td><code>sp³</code></td>
+                        <td>0</td>
+                        <td><strong>Tetraedrisch (109,5°)</strong></td>
+                        <td><strong>CH<sub>4</sub> (Methan), CF<sub>4</sub></strong>, NH<sub>4</sub><sup>+</sup>, SO<sub>4</sub><sup>2−</sup>, PO<sub>4</sub><sup>3−</sup></td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td><code>sp³</code></td>
+                        <td><strong>1</strong></td>
+                        <td><strong>Trigonal-pyramidal (~107°)</strong></td>
+                        <td><strong>NH<sub>3</sub> (Ammoniak!), PCl<sub>3</sub></strong>, H<sub>3</sub>O<sup>+</sup></td>
+                    </tr>
+                    <tr>
+                        <td><strong>4</strong></td>
+                        <td><code>sp³</code></td>
+                        <td><strong>2</strong></td>
+                        <td><strong>Gewinkelt / V-förmig (~104,5°)</strong></td>
+                        <td><strong>H<sub>2</sub>O, F<sub>2</sub>O</strong>, H<sub>2</sub>S, Sauerstoff in Methanol (CH<sub>3</sub>OH)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Klausur-Fallen zu Ammoniak, CO<sub>2</sub> &amp; Hybridisierung</h3>
+            <div class="box box-trap">
+                <span class="box-title">Dauerbrenner-Fragen (2009–2025)</span>
+                <ul>
+                    <li><strong>Ammoniak (NH<sub>3</sub>):</strong> Ist <strong>NICHT trigonal-planar</strong>, sondern <strong>trigonal-pyramidal</strong>! Es hat 1 freies Elektronenpaar, ist kovalent, hat OZ(N) = −III und reagiert als <strong>Lewis-Base</strong> (Elektronenpaardonator) und Brønsted-Base.</li>
+                    <li><strong>Kohlenstoffdioxid (CO<sub>2</sub>):</strong> Ist <strong>linear</strong> (nicht gewinkelt!), ist ein Gas (Trockeneis erst unter −78,5 °C, also bei −20 °C noch gasförmig [2011 #32]!), hat OZ(C) = +IV und entsteht durch Oxidation von CO oder Ameisensäure.</li>
+                    <li><strong>Hybridisierung am Kohlenstoff:</strong><br>
+                    • Nur Einfachbindungen (CH<sub>4</sub>, CH<sub>3</sub>, CH<sub>2</sub>) &rarr; <strong><code>sp³</code></strong> (4 Partner).<br>
+                    • 1 Doppelbindung (Ethen, C=O in Aceton/Kohlensäure, Benzolring) &rarr; <strong><code>sp²</code></strong> (3 Partner).<br>
+                    • 1 Dreifachbindung (Ethin) oder 2 Doppelbindungen (CO<sub>2</sub>) &rarr; <strong><code>sp</code></strong> (2 Partner).</li>
+                    <li><strong>Methanol (CH<sub>3</sub>OH, Klausur 2011 #4 &amp; Seminar 17):</strong> Sowohl das C-Atom (4 Bindungen) als auch das <strong>O-Atom</strong> (2 Bindungen + 2 freie Paare = 4 Bereiche) sind <strong><code>sp³</code>-hybridisiert</strong>!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- KAPITEL 5 -->
+    <div class="section-title" id="rechnen">
+        <span>5. Molare Masse, Prozent-Turboformel &amp; Titration</span>
+        <span class="section-freq">In 100% der Klausuren</span>
+    </div>
+
+    <div class="grid-2">
+        <div class="card">
+            <h3>Molare Masse (M) &amp; Die Ladungs-Ausgleichsfalle</h3>
+            <p style="font-size: 0.9rem;">Grundformeln: <code>n = m / M</code> (in mol) und <code>c = n / V</code> (in mol/L, <strong>Volumen V immer in Liter umrechnen!</strong>).</p>
+
+            <div class="box box-trap">
+                <span class="box-title">Alle Molmassen-Fragen der Altklausuren (Ladungen beachten!)</span>
+                <ul>
+                    <li><strong>Barium(II)-nitrat, Ba(NO<sub>3</sub>)<sub>2</sub> (2025 #16):</strong> 137,33 + 2 &times; 14,01 + 6 &times; 16,00 = <strong>261,32 g/mol</strong>.</li>
+                    <li><strong>Barium(II)-carbonat, BaCO<sub>3</sub> (2019, 2021, 2024):</strong> 137,33 + 12,01 + 3 &times; 16,00 = <strong>197,31 g/mol</strong>.</li>
+                    <li><strong>Mangan(IV)-oxid, MnO<sub>2</sub> (2023 #3):</strong> Mn<sup>4+</sup> braucht zwei O<sup>2−</sup>! 54,94 + 2 &times; 16,00 = <strong>86,94 g/mol</strong>.</li>
+                    <li><strong>Calcium(II)-chlorid, CaCl<sub>2</sub> (2020 #34):</strong> Ca<sup>2+</sup> braucht zwei Cl<sup>−</sup>! 40,1 + 2 &times; 35,45 = <strong>111 g/mol</strong> (Falle: 76,5 ist CaCl).</li>
+                    <li><strong>Cäsiumcarbonat, Cs<sub>2</sub>CO<sub>3</sub> (2015 #26):</strong> Cs<sup>+</sup> (1. HG) + CO<sub>3</sub><sup>2−</sup> braucht <strong>zwei Cs<sup>+</sup></strong>! 2 &times; 132,9 + 12 + 48 = <strong>326 g/mol</strong> (Falle: 193 g/mol).</li>
+                    <li><strong>Natriumcarbonat, Na<sub>2</sub>CO<sub>3</sub> (2017 #33):</strong> 2 &times; 23 + 12 + 48 = <strong>105,98 g/mol</strong>.</li>
+                    <li><strong>Natriumhydroxid, NaOH (2018 #4):</strong> 23 + 16 + 1 = <strong>40 g/mol</strong> | <strong>Salpetersäure, HNO<sub>3</sub> (2011):</strong> <strong>63 g/mol</strong> | <strong>Phosphorsäure, H<sub>3</sub>PO<sub>4</sub> (2009):</strong> <strong>98 g/mol</strong> | <strong>Magnesiumsulfat, MgSO<sub>4</sub> (Sem 44):</strong> <strong>120,4 g/mol</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Prozent &rarr; mol/L Turboformel &amp; Titrationsrechnung</h3>
+            <p style="font-size: 0.9rem;">Bei Dichte <code>d = 1,0 g/mL</code> wiegt 1 Liter Lösung 1000 g. Damit gilt für die Umrechnung von Massenprozent (%) in Molarität (mol/L) immer:</p>
+
+            <div class="formula-block">
+                c (in mol/L) = (Prozentzahl &times; 10) / M (in g/mol)
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aufgabe (Klausur &amp; Seminar)</th>
+                        <th>Rechnung</th>
+                        <th>Ergebnis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>12%ige Essigsäure</strong> (CH<sub>3</sub>COOH, M = 60)<br><span class="pill">2019, 2020, 2021, 2025, Bsp</span></td>
+                        <td><code>(12 &times; 10) / 60 = 120 / 60</code><br><em>(Volumenangabe „3 L“ ist egal!)</em></td>
+                        <td><strong>2,0 mol/L</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>2%ige Essigsäure</strong> (M = 60) <span class="pill">Sem 37</span></td>
+                        <td><code>(2 &times; 10) / 60 = 20 / 60</code></td>
+                        <td><strong>0,33 mol/L</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>46%ige Ameisensäure</strong> (HCOOH, M = 46)<br><span class="pill">2023, 2024</span></td>
+                        <td><code>(46 &times; 10) / 46 = 460 / 46</code></td>
+                        <td><strong>10,0 mol/L</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reines Wasser (H<sub>2</sub>O, 100%)</strong><br><span class="pill">2017, 2018</span></td>
+                        <td><code>1000 g/L / 18 g/mol</code><br><em>(Falle: 18 ist M, nicht c!)</em></td>
+                        <td><strong>55,5 mol/L</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="box box-shortcut">
+                <span class="box-title">Alle Titrations- &amp; Umsatzrechnungen der Altklausuren</span>
+                <ul>
+                    <li><strong>100 mL NaOH + 37,5 mL 1 M HCl &rarr; wie viel g/L Natrium? (2019, 2020):</strong><br>
+                    1. <code>n(HCl) = 1 mol/L &times; 0,0375 L = 0,0375 mol</code> (= Mol Na<sup>+</sup> in 100 mL).<br>
+                    2. Auf 1 Liter (÷ 0,1 L): <code>c(Na+) = 0,375 mol/L</code>.<br>
+                    3. In Gramm Natrium (M = 23 g/mol): <code>0,375 &times; 23 = <strong>8,6 g/L</strong></code>.</li>
+                    <li><strong>100 mL KOH + 33,9 mL 0,1 M HCl &rarr; wie viel g/L Kalium? (2015 #34):</strong><br>
+                    <code>c(K+) = (0,1 &times; 0,0339) / 0,1 = 0,0339 mol/L &times; 39,1 g/mol = <strong>1,33 g/L</strong></code>.</li>
+                    <li><strong>12 g Essigsäure (bzw. 6 g) mit NaOH titrieren (2009, 2011):</strong><br>
+                    <code>n = 12 g / 60 g/mol = 0,2 mol</code> &rarr; <code>0,2 mol &times; 40 g/mol (NaOH) = <strong>8 g NaOH</strong></code> (bei 6 g Essigsäure: <strong>4 g NaOH</strong>).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function downloadHTML() {
+    const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ac_teil1_reines_html.html";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+</script>
+
+</body>
+</html>
